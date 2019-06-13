@@ -20,6 +20,5 @@ items:
         jenkinsfilePath: jenkins/Jenkinsfile
     triggers:
     - generic:
-        secret:
-      type: Generic
-
+      allowEnv: true
+       secret: 'test'
