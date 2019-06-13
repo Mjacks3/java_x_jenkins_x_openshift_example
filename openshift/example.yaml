@@ -19,7 +19,7 @@ items:
       jenkinsPipelineStrategy:
         jenkinsfilePath: jenkins/Jenkinsfile
     triggers:
-    - type: Generic
-        generic:
-          allowEnv: true
-          secret: 'test'
+    - generic:
+        secret:'test'
+      type: Generic
+
