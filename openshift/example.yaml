@@ -1,0 +1,25 @@
+ apiVersion: v1
+kind: List
+metadata: {}
+items:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      pipeline.alpha.openshift.io/uses: '[{"name": "example", "namespace": "", "kind": "DeploymentConfig"}]'
+    name: example-service-pipeline
+  spec:
+    source:
+      git:
+        ref: pipeline
+        uri: https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git
+      type: Git
+    strategy:
+      type: JenkinsPipeline
+      jenkinsPipelineStrategy:
+        jenkinsfilePath: jenkins/Jenkinsfile
+    triggers:
+    - generic:
+        secret:
+      type: Generic
+
