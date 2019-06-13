@@ -11,7 +11,7 @@ items:
   spec:
     source:
       git:
-        ref: pipeline
+        ref: master
         uri: https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git
       type: Git
     strategy:
