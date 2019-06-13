@@ -20,6 +20,5 @@ items:
         jenkinsfilePath: jenkins/Jenkinsfile
     triggers:
     - generic:
-        secret:'test'
+        secret: FiArdDBH
       type: Generic
-
