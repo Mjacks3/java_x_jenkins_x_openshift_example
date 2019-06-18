@@ -10,11 +10,12 @@ node('maven') {
   }
 
   stage('Deploy App') {
-   sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --token=GUH8GL_9G3bHdXAgYFToIM8mjvqwOkJjPPNcIWPqnjM'
+   sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --certificate-authority --token=GUH8GL_9G3bHdXAgYFToIM8mjvqwOkJjPPNcIWPqnjM'
    sh 'oc project bar'
-   sh 'oc new-app --name=Demo_APP_B  wildfly~https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git'
-   sh 'oc deploy --latest dc/bar'
-   sh 'oc scale dc bar --replicas=3'
-  }
+   sh 'oc new-app --name=demo-app-c  wildfly~https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git'
+   sh 'oc rollout demo-app-c'
+   sh 'oc expose svc/demo-app-b'
+   sh 'oc scale svc/demo-app-b --replicas=3'
 
+  }
 }
