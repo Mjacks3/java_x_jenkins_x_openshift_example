@@ -14,7 +14,7 @@ sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --certificate-authority 
 sh 'oc project demod'
 sh 'oc new-app --name=demo-app-d  wildfly~https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git'
 sh 'oc rollout latest demo-app-d'
-sh 'oc expose svc/demo-app-cd'
+sh 'oc expose svc/demo-app-d'
 sh 'oc scale --replicas=10 dc demo-app-d'
 sh 'oc scale --replicas= 2  dc demo-app-d'
 
