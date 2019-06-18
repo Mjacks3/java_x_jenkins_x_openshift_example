@@ -11,9 +11,6 @@ node('maven') {
 
   stage('Deploy App') {
 sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --certificate-authority --token=TDC01llAjKNcIFUzy01EaFOEzdhCoXmT26XYxQAFlPc'
-sh 'oc new-project demod  --display-name="Demo D"'
-sh 'oc create -f https://raw.githubusercontent.com/Mjacks3/java_x_jenkins_x_openshift_example/master/openshift/example.yaml'
-sh 'oc start-build example-service-pipeline'
 sh 'oc new-app --name=demo-app-d  wildfly~https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git'
 sh 'oc rollout latest demo-app-d'
 sh 'oc expose svc/demo-app-cd'
