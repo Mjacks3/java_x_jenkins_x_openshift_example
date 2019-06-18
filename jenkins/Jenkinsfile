@@ -13,11 +13,11 @@ node('maven') {
 sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --insecure-skip-tls-verify --token=TDC01llAjKNcIFUzy01EaFOEzdhCoXmT26XYxQAFlPc'
 sh 'oc project demod'
 sh 'oc new-app --name=demo-app-e  wildfly~https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git'
-sh 'sleep 2m'
+sh 'sleep 1m'
 sh 'oc rollout latest demo-app-e'
 sh 'oc expose svc/demo-app-e'
 sh 'oc scale --replicas=10 dc demo-app-e'
-sh 'oc scale --replicas= 2  dc demo-app-e'
+sh 'oc scale --replicas=2  dc demo-app-e'
 
   }
 }
