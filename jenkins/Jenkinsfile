@@ -10,14 +10,13 @@ node('maven') {
   }
 
   stage('Deploy App') {
-sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --insecure-skip-tls-verify --token=hd28WMN4NdYZeY1mGiw0fI4XIZj4jrhnRuwTbOl0rPg'
+sh 'oc login https://console.okd.sl.cloud9.ibm.com:8443 --insecure-skip-tls-verify --token=xdU40MjqHOLJ4T8r15_-Jb2JBBd_yDah1cODMFppqgQ'
 sh 'oc project demoa'
 sh 'oc new-app --name=demo-app-a  wildfly~https://github.com/Mjacks3/java_x_jenkins_x_openshift_example.git'
 sh 'sleep 1m'
 sh 'oc rollout latest demo-app-a'
 sh 'oc expose svc/demo-app-a'
 sh 'oc scale --replicas=10 dc demo-app-a'
-sh 'oc scale --replicas=2  dc demo-app-a'
-
+sh 'oc scale --replicas=2  dc demo-app-a '
   }
 }
