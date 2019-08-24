@@ -13,3 +13,6 @@ The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
 you'll be creating yourself during the tutorial and the `scripts` subdirectory
 contains a shell script with commands that are executed when Jenkins processes
 the "Deliver" stage of your Pipeline.
+
+#Openshift extention - Malik 
+The openshift folder contains the yaml file used to generate a new Jenkins pipeline for testing the app  via Openshift and deploying to Openshift on completion of tests. The example can be executed directly from the commandline using opsnshift's cli, or executed  with the Openshift user interface. 
